@@ -2,15 +2,9 @@
 {
     partial class Form1
     {
-        /// <summary>
-        /// Variável de designer necessária.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Limpar os recursos que estão sendo usados.
-        /// </summary>
-        /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
+      
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -76,6 +70,7 @@
             this.Enviar.TabIndex = 4;
             this.Enviar.Text = "Enviar";
             this.Enviar.UseVisualStyleBackColor = true;
+            this.Enviar.Click += new System.EventHandler(this.Enviar_Click_1);
             // 
             // Form1
             // 

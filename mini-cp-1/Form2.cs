@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace mini_cp_1
 {
-    public partial class Form2: Form
+    public partial class Form2 : Form
     {
         public Form2()
         {
             InitializeComponent();
-
         }
 
         private void buttonEnviar_Click(object sender, EventArgs e)
@@ -39,24 +38,70 @@ namespace mini_cp_1
 
             if (genero == "Masculino")
             {
-                if (idade < 65 || tempoContribuicao < 20)
+                int idadeMinima = 65;
+                int tempoMinimoContribuicao = 20;
+
+                string mensagem = "Você ainda não pode se aposentar.\n";
+
+                bool podeAposentar = true;
+
+
+                if (idade < idadeMinima)
                 {
-                    MessageBox.Show("Você ainda não pode se aposentar.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    int anosRestantesIdade = idadeMinima - idade;
+                    mensagem += $"Faltam {anosRestantesIdade} anos para atingir a idade mínima de 65 anos.\n";
+                    podeAposentar = false;
+                }
+
+
+                if (tempoContribuicao < tempoMinimoContribuicao)
+                {
+                    int anosRestantesContribuicao = tempoMinimoContribuicao - tempoContribuicao;
+                    mensagem += $"Faltam {anosRestantesContribuicao} anos de contribuição para atingir 20 anos.\n";
+                    podeAposentar = false;
+                }
+
+                if (podeAposentar)
+                {
+                    MessageBox.Show("Você pode se aposentar!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Você pode se aposentar!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(mensagem, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if (genero == "Feminino")
             {
-                if (idade < 60 || tempoContribuicao < 15)
+                int idadeMinima = 60;
+                int tempoMinimoContribuicao = 15;
+
+                string mensagem = "Você ainda não pode se aposentar.\n";
+
+                bool podeAposentar = true;
+
+
+                if (idade < idadeMinima)
                 {
-                    MessageBox.Show("Você ainda não pode se aposentar.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    int anosRestantesIdade = idadeMinima - idade;
+                    mensagem += $"Faltam {anosRestantesIdade} anos para atingir a idade mínima de 60 anos.\n";
+                    podeAposentar = false;
+                }
+
+
+                if (tempoContribuicao < tempoMinimoContribuicao)
+                {
+                    int anosRestantesContribuicao = tempoMinimoContribuicao - tempoContribuicao;
+                    mensagem += $"Faltam {anosRestantesContribuicao} anos de contribuição para atingir 15 anos.\n";
+                    podeAposentar = false;
+                }
+
+                if (podeAposentar)
+                {
+                    MessageBox.Show("Você pode se aposentar!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Você pode se aposentar!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(mensagem, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
@@ -64,6 +109,5 @@ namespace mini_cp_1
                 MessageBox.Show("Gênero não reconhecido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }

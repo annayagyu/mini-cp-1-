@@ -60,5 +60,10 @@ namespace mini_cp_1
                 MessageBox.Show("Login ou senha incorretos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void Enviar_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
